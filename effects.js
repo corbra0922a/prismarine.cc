@@ -35,7 +35,7 @@ function toggleMusic() {
 
 document.addEventListener("DOMContentLoaded", () => {
     const prefix = "⠐ ";
-    const titleText = "decal";
+    const titleText = "guns.lol is trash";
     let index = 0;
     let isDeleting = false;
 
