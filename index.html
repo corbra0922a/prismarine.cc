@@ -1,5 +1,78 @@
-This just hosts assets for @prismarinenetwork
 
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>clu.ng</title>
+    <meta name="theme-color" content="#000001">
+    <link rel="stylesheet" href="public/users/css/cat.css">
+    <link rel="icon" href="public\src\img\1281904753252765717.png" type="image/x-icon">
+    <link rel="shortcut icon" href="public\src\img\1281904753252765717.png" type="image/x-icon"> 
+    <meta content="follow me on ig @7irate !!" property="og:title" />
+    <meta content="http://clu.ng/" property="og:url" />
+    
+    <meta content="#000001" data-react-helmet="true" name="theme-color" />
+</head>
+<script src="snow.js"></script>
+<script src="effects.js"></script>
+<script src="effects2.js"></script>
+<script src="view.js"></script>
+<body>
 
-Socials: guns.lol/xbrayx1
+    <div id="overlay">
+        <button class="overlaybtn" onclick="removeOverlay()">Click</button>
+    </div>
+
+    <div id="user-page">
+
+        <img class="background" src="./r2.wya.lol/banner.png" draggable="false" style="object-fit: cover;">
+
+        <div class="main-container" id="mainDiv">
+
+            <div class="profile-container">
+               <!-- Pfp  -->
+                <img class="pp" src="./r2.wya.lol/profile.png" draggable="false">
+                <p class="username breathing" data-tooltip="uid: 1">prismarine</p>
+<!-- Badges -->
+                <div class="badges-container">
+                    <div class="badges pic-badge" id="prem" data-tooltip="premium user" style="background-image: url('public/src/badges/premium.png');"></div>
+                    <div class="badges pic-badge" id="own" data-tooltip="site owner" style="background-image: url('public/src/badges/booster.png');" bis_skin_checked="1"></div>
+                    <div class="badges pic-badge" id="early "data-tooltip="early user" style="background-image: url('public/src/badges/early.png');"></div>
+                </div>
+
+                <div class="bio-container">
+                    <div class="bio typewriter"></div>
+                </div>
+                <div class="pre-container">
+                    <div class="pre">
+                        <div class="cropped">
+                            <img draggable="false" id="rpc">
+                        </div>
+                    </div>
+                </div>
+                <div class="links-container" id="linksDiv">
+                             
+
+                </div>
+
+                <div class="linksline"></div>
+
+                <div class="views-container">
+                </div>
+            </div>
+
+        <div class="mutebutton">
+            <p id="mutetext" onclick="toggleMusic()">on</p>
+        </div>
+
+    </div>
+
+    <audio id="backgroundsong" src="./r2.wya.lol/music.mp3" loop></audio>
+
+</body>
+
+</html>
+
