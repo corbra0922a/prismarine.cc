@@ -12,12 +12,14 @@ function copyAddress(id) {
 function removeOverlay() {
     var overlay = document.getElementById('overlay');
     var userpage = document.getElementById('user-page');
-    var audio = document.getElementById('backgroundsong')
+    var audio = document.getElementById('backgroundsong');
 
     overlay.style.opacity = '0';
     userpage.style.display = 'flex';
-    audio.volume = 0.3;
+    audio.volume = getVolume();
+    audio.muted = audio.volume === 0;
     audio.play();
+    updateMusicIcon();
 
     setTimeout(function() { 
         overlay.style.display = 'none';
@@ -25,15 +27,58 @@ function removeOverlay() {
 }
 
 function toggleMusic() {
-    var mutebtn = document.getElementById("mutetext");
-        if (mutebtn.innerHTML == "off") mutebtn.innerHTML = "on";
-        else mutebtn.innerHTML = "off";
-    
-    var audio = document.getElementById('backgroundsong')
-    audio.muted = !audio.muted;
+    var audio = document.getElementById('backgroundsong');
+    var volumeSlider = document.getElementById('music-volume');
+
+    if (audio.muted || audio.volume === 0) {
+        var restoredVolume = Number(volumeSlider.dataset.previousVolume) || 30;
+        volumeSlider.value = restoredVolume;
+        audio.volume = restoredVolume / 100;
+        audio.muted = false;
+    } else {
+        volumeSlider.dataset.previousVolume = String(Number(volumeSlider.value) || 30);
+        audio.muted = true;
+    }
+
+    updateMusicIcon();
+}
+
+function getVolume() {
+    return Number(document.getElementById('music-volume').value) / 100;
+}
+
+function updateMusicIcon() {
+    var audio = document.getElementById('backgroundsong');
+    var icon = document.getElementById('music-icon');
+    var button = document.getElementById('music-toggle');
+    var isMuted = audio.muted || audio.volume === 0;
+
+    icon.src = isMuted
+        ? './r2.wya.lol/music_icon_mute.svg'
+        : './r2.wya.lol/music_icon.svg';
+    button.setAttribute('aria-label', isMuted ? 'Unmute music' : 'Mute music');
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const volumeSlider = document.getElementById('music-volume');
+    const audio = document.getElementById('backgroundsong');
+
+    volumeSlider.dataset.previousVolume = volumeSlider.value;
+    audio.volume = getVolume();
+    updateMusicIcon();
+
+    volumeSlider.addEventListener('input', () => {
+        const volume = Number(volumeSlider.value);
+        audio.volume = volume / 100;
+        audio.muted = volume === 0;
+
+        if (volume > 0) {
+            volumeSlider.dataset.previousVolume = String(volume);
+        }
+
+        updateMusicIcon();
+    });
+
     const prefix = "⠐ ";
     const titleText = "guns.lol is trash";
     let index = 0;
@@ -61,7 +106,7 @@ typeWriter();
 
 document.addEventListener("DOMContentLoaded", function () {
 const elements = document.querySelectorAll('.typewriter');
-const texts = ["Why is orange called orange but apple is not called a red?", "Professional Idiot ", "WE ARE CHARLIE KIRK (rip tho)","Why am I named after a block in minecraft?","Why does this typewriter effect go so hard ?", "What do yall think of VS code users ? ","Prismarine lowkey is a terrible name ngl","Source code of this site is available on Github (built this from another template lol) ","Congrats you reched the end of the texts!"];
+const texts = ["Why is orange called orange but apple is not called a red?", "Professional Idiot ","Why am I named after a block in minecraft?","Why does this typewriter effect go so hard ?", "What do yall think of VS code users ? ","Prismarine lowkey is a terrible name ngl","Congrats you reached the end of the texts!"];
 const typingSpeed = 75;
 const pauseDuration = 1250;
 let currentIndex = 0;
