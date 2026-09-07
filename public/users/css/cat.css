@@ -355,15 +355,36 @@ body {
 
 /* badge setup */
 
+.music-controls {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+    position: fixed;
+    bottom: 12px;
+    right: 2vh;
+}
+
 .mutebutton {
+    background: transparent;
+    border: 0;
+    box-sizing: border-box;
     font-family: 'Light';
     color: #fff;
-    position: fixed;
-    bottom: 0;
-    right: 2vh;
+    height: 24px;
+    padding: 0;
     text-align: center;
     cursor: pointer;
     transition: text-shadow 0.5s ease-in-out;
+    width: 24px;
+}
+
+.mutebutton img {
+    display: block;
+    filter: invert(1) drop-shadow(#fff 1px 0 7px);
+    height: 24px;
+    max-height: 24px;
+    max-width: 24px;
+    width: 24px;
 }
 
 .mutebutton:hover {
@@ -372,6 +393,12 @@ body {
     0 0 10px #fff,
     0 0 21px #fff,
     0 0 42px #fff;
+}
+
+.music-controls input[type="range"] {
+    accent-color: #fff;
+    cursor: pointer;
+    width: 100px;
 }
 
 /* mute button setup */
