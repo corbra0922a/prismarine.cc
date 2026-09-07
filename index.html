@@ -39,7 +39,7 @@
                 <div class="badges-container">
                     <div class="badges pic-badge" id="prem" data-tooltip="premium user" style="background-image: url('public/src/badges/premium.png');"></div>
                     <div class="badges pic-badge" id="own" data-tooltip="site owner" style="background-image: url('public/src/badges/booster.png');" bis_skin_checked="1"></div>
-                    <div class="badges pic-badge" id="early "data-tooltip="early user" style="background-image: url('public/src/badges/early.png');"></div>
+                    <div class="badges pic-badge" id="early " data-tooltip="early user" style="background-image: url('public/src/badges/early.png');"></div>
                 </div>
 
                 <div class="bio-container">
@@ -63,8 +63,12 @@
                 </div>
             </div>
 
-        <div class="mutebutton">
-            <p id="mutetext" onclick="toggleMusic()">on</p>
+        <div class="music-controls" aria-label="Music controls">
+            <button class="mutebutton" id="music-toggle" type="button" onclick="toggleMusic()" aria-label="Mute music">
+                <img id="music-icon" src="./r2.wya.lol/music_icon.svg" alt="">
+            </button>
+            <input id="music-volume" type="range" min="0" max="100" value="5" step="1"
+                aria-label="Music volume">
         </div>
 
     </div>
@@ -74,4 +78,3 @@
 </body>
 
 </html>
-
